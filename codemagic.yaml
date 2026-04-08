@@ -13,10 +13,12 @@ workflows:
         script: npm run build
       - name: Sync Capacitor
         script: npx cap sync android
-      - name: Build Android APK
+           - name: Build Android APK
         script: |
           cd android
+          chmod +x gradlew # السطر ده هو اللي هيحل المشكلة
           ./gradlew assembleDebug
+        
     artifacts:
       - android/app/build/outputs/apk/debug/*.apk
     publishing:
