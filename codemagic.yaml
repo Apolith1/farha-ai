@@ -13,9 +13,14 @@ workflows:
         script: npm run build
       - name: Sync Capacitor
         script: npx cap sync android
-      - name: Build Android APK
+      - name: Fix Gradle Wrapper and Build APK
         script: |
           cd android
+          # حذف الملف التالف وتوليد ملف جديد سليم
+          rm -f gradle/wrapper/gradle-wrapper.jar
+          touch gradle/wrapper/gradle-wrapper.jar
+          gradle wrapper --gradle-version 8.2
+          
           chmod +x gradlew
           ./gradlew assembleDebug
     artifacts:
