@@ -1,4 +1,4 @@
-workflow:
+workflows:
   android-build:
     name: Android Build
     max_build_duration: 30
@@ -22,5 +22,4 @@ workflow:
     publishing:
       email:
         recipients:
-          - hassansaper111222@gmail.com # حط إيميلك هنا عشان الملف يتبعتلك
-          
+          - hassansaper111222@gmail.com
